@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>login</title>
+</head>
+<body>
+{{username}}{{login_error_info}}
+<form method="post">
+    {% csrf_token %}
+    <div><input type="text"  placeholder="Username" name="username" required="" /></div>
+    <div><input type="text"  placeholder="password" name="password" required="" /></div>
+    <div><button type="submit" >Log in</button></div>
+</form>
+</body>
+</html>

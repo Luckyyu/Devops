@@ -245,6 +245,13 @@ label {
     display: block;
 }
 
+/*add later*/
+.dropdown-menu {
+    background-color: #333333;
+}
+.dropdown-menu>li a:hover {
+    color: #646464;
+}
 
 /* 重置面板部分属性 */
 

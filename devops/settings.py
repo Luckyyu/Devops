@@ -8,9 +8,10 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
+
 """
 
-import os
+import os,sys
 
 try:
     import ConfigParser as conf
@@ -19,7 +20,7 @@ except ImportError as e:
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 config = conf.ConfigParser()
 config.read(os.path.join(BASE_DIR, 'conf/devops.ini'))
 
@@ -30,7 +31,7 @@ config.read(os.path.join(BASE_DIR, 'conf/devops.ini'))
 SECRET_KEY = 'bk6++!6x2c0@3gc%)n7^ld)!xl8qzoz=&1@fhjkl%&#&%la&la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account'
 ]
 
 MIDDLEWARE = [

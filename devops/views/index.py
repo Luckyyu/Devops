@@ -9,7 +9,7 @@ from django.contrib import auth
 class Index(LoginRequiredMixin,View):
     login_url = '/login/'
     def get(self,request,*args,**kwagrs):
-        return render(request,"index.html",{"user":request.user})
+        return render(request,"base.html",{"user":request.user})
 
 def login(request):
         if request.session.get('username') is not None:

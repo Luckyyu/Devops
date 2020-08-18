@@ -20,26 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39702cfc-5de5-457e-9c36-31ac9cdd1b47" name="Default Changelist" comment="404">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/dandelion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/blueprint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/carbon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error-hanger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error-pin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/devops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/devops.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/account/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/user_center.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/devops.ini" beforeDir="false" afterPath="$PROJECT_DIR$/conf/devops.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devops/views/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/views/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/403.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +44,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="HTML4 File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -69,17 +64,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/account" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\Devops\apps\account" />
       <recent name="E:\workspace\Devops\static\css" />
       <recent name="E:\workspace\Devops\static\img" />
       <recent name="E:\workspace\Devops\templates" />
       <recent name="E:\PycharmProjects\devops\templates" />
-      <recent name="E:\PycharmProjects\devops\static\css" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -93,6 +88,14 @@
       <option name="presentableId" value="Default" />
       <updated>1597554413990</updated>
     </task>
+    <task id="LOCAL-00001" summary="404">
+      <created>1597659985105</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597659985105</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,14 +131,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="546" y="259" width="274" height="297" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1597656238143" />
-    <state x="186" y="9" key="SettingsEditor" timestamp="1597656435971">
+    <state x="186" y="9" key="SettingsEditor" timestamp="1597660062980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597656435971" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1597656524220">
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597660062980" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1597660039003">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597656524220" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597660039003" />
+    <state x="662" y="49" key="search.everywhere.popup" timestamp="1597739941465">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="662" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597739941465" />
     <state x="477" y="55" key="svn.repositoryBrowser" timestamp="1597574996097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

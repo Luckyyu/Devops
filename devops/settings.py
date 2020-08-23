@@ -31,7 +31,7 @@ config.read(os.path.join(BASE_DIR, 'conf/devops.ini'))
 SECRET_KEY = 'bk6++!6x2c0@3gc%)n7^ld)!xl8qzoz=&1@fhjkl%&#&%la&la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account'
+    'rest_framework',
+    'assets',
+    'api',
+    'account',
 ]
 
 MIDDLEWARE = [

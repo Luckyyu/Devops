@@ -13,21 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.conf.urls import url,include
-from devops.views import index
-from django.conf.urls import handler404, handler403
+
+from django.conf.urls import url
+from . import views
+
 
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('^$',index.Index.as_view()),
-    url('^login/$',index.login),
-    url('^logout/$',index.logout),
-    url('^api/',include('api.urls')),
-    url('^assets/',include('assets.urls')),
-    url('^account/',include('account.urls')),
+    url('^config/$', views.Config.as_view()),
 ]
-
-handler404 = index.PageError.as_view()
-handler403 = index.Permission.as_view()

@@ -12,8 +12,10 @@ def zone_list(request,fromate=None):
     list all zone,orcreate a zone
     """
     if request.method == 'GET':
-        snippets = Zone_Assets.objects.get(id=1)
-        serializer = serializers.ZoneSerializer(snippets)
+        # snippets = Zone_Assets.objects.get(id=1)
+        # serializer = serializers.ZoneSerializer(snippets)
+        snippets = Zone_Assets.objects.all()
+        serializer = serializers.ZoneSerializer(snippets,many=True)
         print(serializer.data)
         return Response(serializer.data,status=status.HTTP_200_OK)
 

@@ -19,22 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39702cfc-5de5-457e-9c36-31ac9cdd1b47" name="Default Changelist" comment="404">
-      <change afterPath="$PROJECT_DIR$/apps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/account/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/user_center.html" afterDir="false" />
+    <list default="true" id="39702cfc-5de5-457e-9c36-31ac9cdd1b47" name="Default Changelist" comment="account">
+      <change afterPath="$PROJECT_DIR$/static/css/buttons.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/datatable/dataTables.buttons.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/datatable/jquery.dataTables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/devops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/devops.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api/views/assets_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/views/assets_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/devops.ini" beforeDir="false" afterPath="$PROJECT_DIR$/conf/devops.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devops/views/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/views/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/assets/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/assets/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets/assets_config.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets/assets_config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +71,11 @@
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workspace\Devops\static\img" />
+      <recent name="E:\workspace\Devops\static\css" />
+      <recent name="E:\workspace\Devops\static\js\datatable" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\workspace\Devops\apps\account" />
       <recent name="E:\workspace\Devops\static\css" />
@@ -139,10 +146,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597660039003" />
-    <state x="662" y="49" key="search.everywhere.popup" timestamp="1597739941465">
+    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598518812119">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="662" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597739941465" />
+    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598518812119" />
     <state x="477" y="55" key="svn.repositoryBrowser" timestamp="1597574996097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -14,11 +14,6 @@
 
     <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
     <link href="/static/css/main.css" rel="stylesheet">
-    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
-    <!--[if lt IE 9]>
-    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script>
-    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script>
-    <![endif]-->
     {% block css-content %}
     {% endblock %}
 </head>
@@ -407,6 +402,11 @@
 <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 
 <script src="https://magicbox.bk.tencent.com/static_api/v3/bk/js/bk.js"></script>
+<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+<!--[if lt IE 9]>
+<script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script>
+<script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script>
+<![endif]-->
 
 <script src="/static/js/index.js"></script>
 {% block js-content %}

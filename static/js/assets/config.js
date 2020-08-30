@@ -56,25 +56,41 @@ function InitDataTable(tableId,dataList,buttons,columns,columnDefs){
 		    	});
 }
 
-function makeIdcTable(dataList){
+function RefreshTable(tableId,urlstr){
+    $.getJSON(urlstr,null,function(dataList){
+        table = $('#'+tableId).dataTable();
+        oSettings = table.fnSettings();
+        table.fnClearTable(this);
+
+	  for (var i=0; i<dataList.length; i++)
+	  {
+	    table.oApi._fnAddData(oSettings, dataList[i]);
+	  }
+
+	  oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
+	  table.fnDraw();
+    });
+}
+
+function makeZoneTables(dataList){
     var columns = [
         {"data":"id"},
         {"data":"zone_name"}
     ]
     var columnDefs = [
-        {
-                targets: [2],
-                render: function(data, type, row, meta) {
-                    return '<div class="btn-group  btn-group-xs">' +
-                           '<button type="button" name="btn-idc-modf" value="'+ row.id +'" class="btn btn-default"  aria-label="Justify"><span class="fa fa-edit" aria-hidden="true"></span>' +
-                           '</button>' +
-                           '<button type="button" name="btn-idc-confirm" value="'+ row.id +'" class="btn btn-default" aria-label="Justify"><span class="fa fa-trash" aria-hidden="true"></span>' +
-                           '</button>' +
-                           '</div>';
-                },
-                "className": "text-center",
-        },
-   	]
+   	    		        {
+	    	    				targets: [2],
+	    	    				render: function(data, type, row, meta) {
+	    	                        return '<div class="btn-group  btn-group-xs">' +
+		    	                           '<button type="button" name="btn-zone-modf" value="'+ row.id +'" class="btn btn-default"  aria-label="Justify"><span class="fa fa-edit" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '<button type="button" name="btn-zone-confirm" value="'+ row.id +'" class="btn btn-default" aria-label="Justify"><span class="fa fa-trash" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '</div>';
+	    	    				},
+	    	    				"className": "text-center",
+   	    		        },
+   	    		      ]
    	var buttons = [{
             text: '<span class="fa fa-plus"></span>',
             className: "btn-xs",
@@ -90,5 +106,92 @@ $(document).ready(function(){
     $.each(zone_list,function(i,item){
         console.log(item["zone_name"]);
     });
-    makeIdcTable(zone_list)
+    makeZoneTables(zone_list)
+
+    $('#zonesubmit').on('click',function(){
+        $.ajax({
+            cache:true,
+            type:"POST",
+            url:"/api/zone/",
+            contentType : "application/json",
+			dataType : "json",
+            data:JSON.stringify({
+				"zone_name": $('#zone_name').val(),
+			}),
+            async:false,
+            error: function(request) {
+            	new PNotify({
+                    title: 'Ops Failed!',
+                    text: request.responseText,
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            },
+            success:function(data){
+                new PNotify({
+                    title:"Success!",
+                    text:'区域添加成功',
+                    type:'Sueccess',
+                    styling:'bootstrap3'
+                });
+                RefreshTable('zoneAssetsTable', '/api/zone/');
+                $('#addZoneModal').modal("hide");
+            }
+        });
+    });
+
+    $('#zoneAssetsTable tbody').on('click',"button[name='btn-zone-modf']", function(){
+    	var vIds = $(this).val();
+    	var td = $(this).parent().parent().parent().find("td")
+    	var zone_name = td.eq(1).text()
+        $.confirm({
+            icon: 'fa fa-edit',
+            type: 'blue',
+            title: '修改数据',
+            content: '<form  data-parsley-validate class="form-horizontal form-label-left">' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">区域名称<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_zone_name" value="'+ zone_name +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		          '</form>',
+            buttons: {
+                '取消': function() {},
+                '修改': {
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        var zone_name = this.$content.find("[name='modf_zone_name']").val();
+    			    	$.ajax({
+    			            cache: true,
+    			            type: "PUT",
+    			            url:"/api/zone/" + vIds + '/',
+    			            data:{
+    			            	"zone_name":zone_name,
+    			            	},
+    			            error: function(request) {
+    			            	new PNotify({
+    			                    title: 'Ops Failed!',
+    			                    text: request.responseText,
+    			                    type: 'error',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            },
+    			            success: function(data) {
+    			            	new PNotify({
+    			                    title: 'Success!',
+    			                    text: '修改成功',
+    			                    type: 'success',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            	RefreshTable('zoneAssetsTable', '/api/zone/');
+    			            }
+    			    	});
+                    }
+                }
+            }
+        });
+    });
+
 });

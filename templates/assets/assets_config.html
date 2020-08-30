@@ -1,236 +1,304 @@
 {% extends 'base.html' %}
 
 {% block css-content %}
+<link href="/static/css/jquery/jquery-confirm.min.css" rel="stylesheet">
 <link href="/static/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="/static/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.nonblock.css" rel="stylesheet">
+
+<style type="text/css">
+	#zoneAssetsTable_filter input {
+			width: 80px;
+	   	}
+
+</style>
 {% endblock %}
 
 {% block page-content %}
-<div class="" role="tabpanel" data-example-id="togglable-tabs">
-	<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"
-												  aria-expanded="false"><i class="fa fa-building"></i> 机房信息</a>
-		</li>
-		<li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab"
-											aria-expanded="false"><i class="fa fa-bars"></i> 机柜线路</a>
-		</li>
-		<li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab"
-											aria-expanded="false"><i class="fa fa-bookmark"></i> 标签分组</a>
-		</li>
-	</ul>
-	<div id="myTabContent" class="tab-content">
-		<div role="tabpanel" class="tab-pane fade active in" id="tab_content2" aria-labelledby="profile-tab">
+        <div class="clearfix"></div>
+        <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> 基础资产配置 <small>Base Assets</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
 
-			<div class="col-md-3 col-sm-3 col-xs-3">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>区域信息 <small>Zone</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="zoneAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>区域名称</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
 
-			<div class="col-md-9 col-sm-9 col-xs-9">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>机房信息 <small>IDC</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="idcAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>区域</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-building"></i> 机房信息</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false"><i class="fa fa-bars"></i> 机柜线路</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false"><i class="fa fa-bookmark"></i> 标签分组</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content2" aria-labelledby="profile-tab">
 
-			<div class="col-md-3 col-sm-3 col-xs-3"></div>
+			              <div class="col-md-3 col-sm-3 col-xs-3">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>区域信息 <small>Zone</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="zoneAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>区域名称</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+			                  </div>
+			                </div>
+			              </div>
 
-			<div class="col-md-9 col-sm-9 col-xs-9">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>机房闲置资产信息 <small>Idle Assets</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="idleAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>所在机房</th>
-								<th>资产名称</th>
-								<th>数量</th>
-								<th>登记员</th>
-								<th>备注</th>
-								<th>记录时间</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			              <div class="col-md-9 col-sm-9 col-xs-9">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>机房信息 <small>IDC</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="idcAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>区域</th>
+			                          <th>机房名称</th>
+			                          <th>运营商</th>
+			                          <th>机房带宽</th>
+			                          <th>联系人</th>
+			                          <th>联系电话</th>
+			                          <th>机房地址</th>
+			                          <th>IP地址段</th>
+			                          <th>备注</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+			                  </div>
+			                </div>
+			              </div>
 
-		</div>
-		<div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+			              <div class="col-md-3 col-sm-3 col-xs-3"></div>
 
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>出口线路 <small>Line</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="lineAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>出口线路</th>
-								<th>单价</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+			              <div class="col-md-9 col-sm-9 col-xs-9">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>机房闲置资产信息 <small>Idle Assets</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="idleAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>所在机房</th>
+			                          <th>资产名称</th>
+			                          <th>数量</th>
+			                          <th>登记员</th>
+			                          <th>备注</th>
+			                          <th>记录时间</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+			                  </div>
+			                </div>
+			              </div>
 
-					</div>
-				</div>
-			</div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
 
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>机柜信息 <small>Cabinet</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="cabinetAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>所属机房</th>
-								<th>机柜名称</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+			              <div class="col-md-4 col-sm-6 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>出口线路 <small>Line</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="lineAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>出口线路</th>
+			                          <th>单价</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
 
-					</div>
-				</div>
-			</div>
+			                  </div>
+			                </div>
+			              </div>
 
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>Raid类型 <small>Raid</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="raidAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>Raid类型</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
+			              <div class="col-md-4 col-sm-6 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>机柜信息 <small>Cabinet</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="cabinetAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>所属机房</th>
+			                          <th>机柜名称</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
 
-							</tbody>
-						</table>
+			                  </div>
+			                </div>
+			              </div>
 
-					</div>
-				</div>
-			</div>
+			              <div class="col-md-4 col-sm-6 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>Raid类型 <small>Raid</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                    <table class="table" id="raidAssetsTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>Raid类型</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
 
-		</div>
+			                      </tbody>
+			                    </table>
 
-		<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+			                  </div>
+			                </div>
+			              </div>
 
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>资产标签<small>Tag</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<table class="table" id="tagsAssetsTable">
-							<thead>
-							<tr>
-								<th>ID</th>
-								<th>标签名称</th>
-								<th class="text-center">操作</th>
-							</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                        </div>
 
-<div id="addZoneModal" class="modal fade bs-example-modal-zone" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+
+				              <div class="col-md-6 col-sm-6 col-xs-12">
+				                <div class="x_panel">
+				                  <div class="x_title">
+				                    <h2>资产标签<small>Tag</small></h2>
+				                    <div class="clearfix"></div>
+				                  </div>
+				                  <div class="x_content">
+				                    <table class="table" id="tagsAssetsTable">
+				                      <thead>
+				                        <tr>
+				                          <th>ID</th>
+				                          <th>标签名称</th>
+				                          <th class="text-center">操作</th>
+				                        </tr>
+				                      </thead>
+				                      <tbody>
+				                      </tbody>
+				                    </table>
+
+				                  </div>
+				                </div>
+				              </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div  class="modal fade bs-example-modal-tags-info"  tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">添加区域信息</h4>
+                <h4 class="modal-title" id="myTagsModalLabel">标签分类</h4>
               </div>
-              <div class="modal-body">
-				<form class="form-horizontal" role="form" id="zoneAssetsform">
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">区域名称<span class="required">*</span>
-						</label>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input class="form-control" type="text" id="zone_name" />
-						</div>
-					</div>
-				</form>
+              <div class="modal-body ue-container">
+
+				 <select multiple="multiple" size="10" name="doublebox" class="demo">
+			        </select>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" id="zonesubmit"  class="btn btn-primary">保存</button>
+                <button type="button" id="taggroupsubmit"  class="btn btn-primary">保存</button>
               </div>
 
             </div>
           </div>
         </div>
+
+<div id="addZoneModal" class="modal fade bs-example-modal-zone" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">添加区域信息</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="zoneAssetsform">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">区域名称<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs12">-
+                            <input class="form-control" type="text" id="zone_name"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="zonesubmit" class="btn btn-primary">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block js-content %}
 <script src="/static/js/assets/config.js"></script>
+<script src="/static/js/pnotify/pnotify.js"></script>
+<script src="/static/js/pnotify/pnotify.nonblock.js"></script>
+<script src="/static/js/pnotify/pnotify.buttons.js"></script>
 <script src="/static/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/static/js/datatable/dataTables.buttons.min.js"></script>
+<script src="/static/js/jquery/jquery-confirm.min.js"></script>
 {% endblock %}
 

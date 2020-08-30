@@ -6,15 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Devops 主页</title>
-
-    <!-- Bootstrap css -->
+ <!-- Bootstrap css-->
     <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap_noresponsive.css"
           rel="stylesheet">
+
     <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
 
-    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
-    <link href="/static/css/main.css" rel="stylesheet">
+     <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <!--<link href="/static/css/bootstrap.min.css" rel="stylesheet">-->
+     <link href="/static/css/main.css" rel="stylesheet">
     {% block css-content %}
+
+
+
+
+
     {% endblock %}
 </head>
 
@@ -407,7 +413,7 @@
 <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script>
 <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script>
 <![endif]-->
-
+<script src="/static/js/csrf/csrf.js"></script>
 <script src="/static/js/index.js"></script>
 {% block js-content %}
 

@@ -27,6 +27,7 @@ urlpatterns = [
     url('^api/',include('api.urls')),
     url('^assets/',include('assets.urls')),
     url('^account/',include('account.urls')),
+    url('^duty/',include('duty.urls')),
 ]
 
 handler404 = index.PageError.as_view()

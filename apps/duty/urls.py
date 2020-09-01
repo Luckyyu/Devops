@@ -16,11 +16,9 @@ Including another URLconf
 
 from django.conf.urls import url
 from . import views
-from api.views import assets_api,cal_api
 
 
 
 urlpatterns = [
-    url('^zone/$',assets_api.zone_list ),
-    url('^duty/$',cal_api.cal ),
+    url('^duty_list/$', views.duty.as_view()),
 ]

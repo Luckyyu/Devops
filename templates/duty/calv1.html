@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block css-content %}
+    <meta charset='utf-8' />
+    <link href="/static/css/duty/fullcalendar.css" rel="stylesheet">
+<link href="/static/css/jquery/jquery-confirm.min.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.nonblock.css" rel="stylesheet">
+    <style>
+        #calendar {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 0 10px;
+  }
+.fc-v-event { /* allowed to be top-level */
+  display: block;
+  border: 1px solid #3788d8;
+  border: 1px solid var(--fc-event-border-color, #3788d8);
+  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--fc-event-bg-color, #3788d8)
+
+}
+    </style>
+{% endblock %}
+
+
+{% block page-content %}
+<div id='calendar'></div>
+{% endblock %}
+
+{% block js-content %}
+    <script src="/static/js/duty/fullcalendar.js"></script>
+    <script src="/static/js/duty/locales-all.min.js"></script>
+
+<script src="/static/js/jquery/jquery-confirm.min.js"></script>
+<script src="/static/js/pnotify/pnotify.js"></script>
+<script src="/static/js/pnotify/pnotify.nonblock.js"></script>
+<script src="/static/js/pnotify/pnotify.buttons.js"></script>
+
+<script>
+    function loadfull(){
+        console.log("it works");
+        var initialLocaleCode = 'en';
+        var calendarE1 = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarE1,{
+            initialDate:'{{ nowday }}',
+            locale: initialLocaleCode,
+            editable:false,
+            selectable:true,
+            navLinks:false,
+            eventSources:[{
+                url:'http://127.0.0.1:8000/api/duty/',
+                textColor: 'black',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderColor:'rgba(0, 0, 0, 0)'
+            }],
+            dateClick: function(info){
+                makeDutyTables(info.dateStr);
+
+            },
+            eventOrder: 'order',
+        });
+        calendar.render();
+}
+document.addEventListener('DOMContentLoaded',loadfull());
+
+</script>
+<script src="/static/js/duty/duty.js"></script>
+{% endblock %}

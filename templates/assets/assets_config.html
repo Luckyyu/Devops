@@ -79,7 +79,6 @@
 			                          <th>ID</th>
 			                          <th>区域</th>
 			                          <th>机房名称</th>
-			                          <th>运营商</th>
 			                          <th>机房带宽</th>
 			                          <th>联系人</th>
 			                          <th>联系电话</th>
@@ -290,6 +289,97 @@
         </div>
     </div>
 </div>
+
+<div id="addIDCModal" class="modal fade bs-example-modal-zone" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">添加IDC信息</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id=idcAssetsTable">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">区域<span
+                                class="required">*</span>
+                        </label>
+
+                        <div class="col-md-6 col-sm-6 col-xs12">
+							<select class="form-control" type="text" id="zone_idc_select"></select>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">机房名称<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_name"/>
+                        </div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">机房带宽<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_bandwidth"/>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">联系人<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_contact"/>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">联系电话<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_phone"/>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">机房地址<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_address"/>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">IP网段<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_network"/>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">备注<span
+                                class="required">*</span>
+                        </label>
+						<div class="col-md-6 col-sm-6 col-xs12">
+							<input class="form-control" type="text" id="idc_desc"/>
+                        </div>
+					</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="idcsubmit" class="btn btn-primary">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}
 
 {% block js-content %}

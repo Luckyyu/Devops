@@ -19,32 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39702cfc-5de5-457e-9c36-31ac9cdd1b47" name="Default Changelist" comment="account">
-      <change afterPath="$PROJECT_DIR$/apps/api/views/cal_api.py" afterDir="false" />
+    <list default="true" id="39702cfc-5de5-457e-9c36-31ac9cdd1b47" name="Default Changelist" comment="duty">
       <change afterPath="$PROJECT_DIR$/apps/duty/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/apps.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/apps/duty/migrations/0001_initial.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/apps/duty/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/duty/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/duty.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/duty/fullcalendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/duty/duty.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/duty/fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/duty/locales-all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/duty/calv1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/devops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/devops.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api/views/assets_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/views/assets_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/assets/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/assets/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/devops.ini" beforeDir="false" afterPath="$PROJECT_DIR$/conf/devops.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/assets.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/assets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/devops/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/duty/fullcalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/duty/fullcalendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/assets/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/assets/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets/assets_config.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets/assets_config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/duty/calv1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/duty/calv1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +51,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -74,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/account" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OpsManage-3" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -91,6 +86,34 @@
       <recent name="E:\workspace\Devops\static\css" />
       <recent name="E:\workspace\Devops\static\js\datatable" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="devops" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/devops" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/devops/settings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.settings" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -110,12 +133,44 @@
       <option name="project" value="LOCAL" />
       <updated>1597659985105</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="duty">
+      <created>1598940176464</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598940176464</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -123,11 +178,17 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="404" />
-    <option name="LAST_COMMIT_MESSAGE" value="404" />
+    <MESSAGE value="duty" />
+    <option name="LAST_COMMIT_MESSAGE" value="duty" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597657378556">
@@ -138,10 +199,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="216" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1597656588349" />
-    <state x="465" y="119" key="FileChooserDialogImpl" timestamp="1598926452062">
+    <state x="465" y="119" key="FileChooserDialogImpl" timestamp="1599016948244">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="465" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598926452062" />
+    <state x="465" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599016948244" />
     <state x="496" y="278" key="Github.CreateGistDialog" timestamp="1597574488413">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -150,18 +211,54 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="546" y="259" width="274" height="297" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1597656238143" />
+    <state width="1249" height="140" key="GridCell.Tab.0.bottom" timestamp="1599115568700">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1249" height="140" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599115568700" />
+    <state width="1249" height="140" key="GridCell.Tab.0.center" timestamp="1599115568700">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1249" height="140" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599115568700" />
+    <state width="1249" height="140" key="GridCell.Tab.0.left" timestamp="1599115568700">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1249" height="140" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599115568700" />
+    <state width="1249" height="140" key="GridCell.Tab.0.right" timestamp="1599115568700">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1249" height="140" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599115568700" />
+    <state x="639" y="21" key="RollbackChangesDialog" timestamp="1598940903595">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="639" y="21" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598940903595" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1598926789056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598926789056" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1597660039003">
+    <state x="530" y="24" key="VCS.ChangeListViewerDialog" timestamp="1598940851382">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597660039003" />
-    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598518812119">
+    <state x="530" y="24" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1598940851382" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1598942565063">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598518812119" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598942565063" />
+    <state x="611" y="111" key="git4idea.merge.GitMergeDialog" timestamp="1598942534626">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="611" y="111" key="git4idea.merge.GitMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1598942534626" />
+    <state x="600" y="214" key="git4idea.ui.GitResetDialog" timestamp="1598940853558">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="600" y="214" key="git4idea.ui.GitResetDialog/0.0.1366.728@0.0.1366.728" timestamp="1598940853558" />
+    <state x="600" y="159" key="git4idea.ui.GitTagDialog" timestamp="1598942768428">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="600" y="159" key="git4idea.ui.GitTagDialog/0.0.1366.728@0.0.1366.728" timestamp="1598942768428" />
+    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599115390212">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="662" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599115390212" />
     <state x="477" y="55" key="svn.repositoryBrowser" timestamp="1597574996097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

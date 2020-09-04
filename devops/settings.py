@@ -99,7 +99,7 @@ WSGI_APPLICATION = 'devops.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+        'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': config.get('db', 'database'),
             'USER': config.get('db', 'user'),
@@ -108,7 +108,7 @@ DATABASES = {
             'PORT': config.getint('db', 'port'),
 #             'CONN_MAX_AGE': 3600, #value which is less than wait_timeout in MySQL config (my.cnf).
         }
-}
+    }
 
 
 # Password validation

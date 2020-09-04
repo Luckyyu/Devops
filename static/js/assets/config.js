@@ -56,6 +56,18 @@ function InitDataTable(tableId,dataList,buttons,columns,columnDefs){
 		    	});
 }
 
+function makeSelect(ids,key,name,dataList){
+	//var userHtml = '<select required="required" class="form-control" name="'+ name +'" autocomplete="off">'
+	var selectHtml = '';
+	for (var i=0; i <dataList.length; i++){
+		selectHtml += '<option name="'+ name +'"value="'+ dataList[i]["id"] +'">'+ dataList[i][key] +'</option>'
+	};
+	//userHtml =  userHtml + selectHtml + '</select>';
+	//document.getElementById(ids).innerHTML= userHtml;
+	document.getElementById(ids).innerHTML= selectHtml;
+}
+
+
 function RefreshTable(tableId,urlstr){
     $.getJSON(urlstr,null,function(dataList){
         table = $('#'+tableId).dataTable();
@@ -100,14 +112,97 @@ function makeZoneTables(dataList){
         }]
    	InitDataTable('zoneAssetsTable',dataList,buttons,columns,columnDefs)
 }
-$(document).ready(function(){
-    var zone_list = requests('get',"/api/zone/")
-    $("#show").html(zone_list[1]["zone_name"])
-    $.each(zone_list,function(i,item){
-        console.log(item["zone_name"]);
-    });
-    makeZoneTables(zone_list)
 
+
+$(document).ready(function(){
+
+    var zone_list = requests('get',"/api/zone/")
+    var idc_list = requests('get','/api/idc/')
+    $.each(idc_list,function(i,item){
+        console.log(item["idc_name"]);
+    });
+
+//显示idc表格，以及获取数据
+function makeIDCTables(dataList){
+    var columns = [
+        {"data":"id"},
+        {"data":"zone_name"},
+        {"data":"idc_name"},
+        {"data":"idc_bandwidth"},
+        {"data":"idc_contact"},
+        {"data":"idc_phone"},
+        {"data":"idc_address"},
+        {"data":"idc_network"},
+        {"data":"idc_desc"},
+    ]
+    var columnDefs = [
+   	    		        {
+	    	    				targets: [9],
+	    	    				render: function(data, type, row, meta) {
+	    	                        return '<div class="btn-group  btn-group-xs">' +
+		    	                           '<button type="button" name="btn-idc-modf" value="'+ row.id +'" class="btn btn-default"  aria-label="Justify"><span class="fa fa-edit" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '<button type="button" name="btn-idc-confirm" value="'+ row.id +'" class="btn btn-default" aria-label="Justify"><span class="fa fa-trash" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '</div>';
+	    	    				},
+	    	    				"className": "text-center",
+   	    		        },
+   	    		      ]
+   	var buttons = [{
+            text: '<span class="fa fa-plus"></span>',
+            className: "btn-xs",
+            action: function ( e, dt, node, config ) {
+                makeSelect("zone_idc_select","zone_name","zone",zone_list)
+            	$('#addIDCModal').modal("show");
+            }
+        }]
+   	InitDataTable('idcAssetsTable',dataList,buttons,columns,columnDefs)
+}
+    makeZoneTables(zone_list);
+    makeIDCTables(idc_list);
+
+//机房添加
+    $('#idcsubmit').on('click',function(){
+        $.ajax({
+            cache:true,
+            type:"POST",
+            url:"/api/idc/",
+            contentType : "application/json",
+			dataType : "json",
+            data:JSON.stringify({
+				"zone": $('#zone_idc_select option:selected').val(),
+				"idc_name":$('#idc_name').val(),
+				"idc_name":$('#idc_name').val(),
+				"idc_bandwidth":$('#idc_bandwidth').val(),
+				"idc_contact":$('#idc_contact').val(),
+				"idc_phone":$('#idc_phone').val(),
+				"idc_address":$('#idc_address').val(),
+				"idc_network":$('#idc_network').val(),
+				"idc_desc":$('#idc_desc').val()
+			}),
+            async:false,
+            error: function(request) {
+            	new PNotify({
+                    title: 'Ops Failed!',
+                    text: request.responseText,
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            },
+            success:function(data){
+                new PNotify({
+                    title:"Success!",
+                    text:'机房添加成功',
+                    type:'Sueccess',
+                    styling:'bootstrap3'
+                });
+                RefreshTable('idcAssetsTable', '/api/idc/');
+                $('#addIDCModal').modal("hide");
+            }
+        });
+    });
+//区域添加
     $('#zonesubmit').on('click',function(){
         $.ajax({
             cache:true,
@@ -140,6 +235,7 @@ $(document).ready(function(){
         });
     });
 
+//区域修改
     $('#zoneAssetsTable tbody').on('click',"button[name='btn-zone-modf']", function(){
     	var vIds = $(this).val();
     	var td = $(this).parent().parent().parent().find("td")

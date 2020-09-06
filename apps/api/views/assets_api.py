@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from api import serializers
 from rest_framework import status
-from assets.models import Zone_Assets,IDC_Assets
+from assets.models import Zone_Assets,IDC_Assets,Idel_Assets
 
 
 @api_view(['GET','POST'])
@@ -25,6 +25,31 @@ def zone_list(request,formate=None):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT','DELETE'])
+def zone_detail(request,id,formate=None):
+    '''
+    update,delete zone
+    :param request:
+    :param id:
+    :param formate:
+    :return:
+    '''
+    try:
+        snippet = Zone_Assets.objects.get(id=id)
+    except Zone_Assets.DoesNotExits:
+        return Response(sttus=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = serializers.ZoneSerializer(snippet,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 @api_view(['GET','POST'])
 def idc_list(request,formate=None):
@@ -50,4 +75,39 @@ def idc_list(request,formate=None):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["PUT","DELETE"])
+def idc_detail(request,id,format=None):
+    '''
+    update,delete idc
+    :param request:
+    :param id:
+    :param format:
+    :return:
+    '''
+    try:
+        snippet = IDC_Assets.objects.get(id=id)
+    except IDC_Assets.DoesNotExits:
+        return Response(sttus=status.HTTP_404_NOT_FOUND)
+
+    if request.method=='PUT':
+
+        serializer = serializers.IdcSerializer(snippet,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method=="DELETE":
+
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET','POST'])
+def idel_list(request,formate=None):
+    if request.method == 'GET':
+        snippets = Idel_Assets.objects.all()
+        serializer = serializers.IdelSerializer(snippets)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 

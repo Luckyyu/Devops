@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block page-content %}
+<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> 用户管理<small>User Manage</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="true"><i class="fa fa-sitemap"></i> 部门信息</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-map-marker"></i> 用户列表</a>
+                        </li>
+                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-users"></i> 用户角色</a>
+                        </li>
+<!--                         <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false"><i class="fa fa-bookmark"></i> 标签分组</a>
+                        </li>     -->
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content1" aria-labelledby="home-tab">
+			              <div class="col-md-12 col-sm-12 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>用户信息 <small>User Detail</small></h2>
+
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+<!-- 			                    <div>
+			                     	<button type="button" name="add-navbar-number" class="btn btn-xs btn-default" data-toggle="modal" data-target=".bs-example-modal-navbarnumber"><i class="glyphicon glyphicon-plus"></i></button>
+			                    </div> -->
+			                    <table class="table" id="userManageListTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>登陆名</th>
+			                          <th>中文名</th>
+			                          <th>电话号码</th>
+			                          <th>邮箱地址</th>
+			                          <th>超级管理员</th>
+			                          <th>职务</th>
+			                          <th>上级</th>
+			                          <th>最后登录</th>
+			                          <th>注册日期</th>
+			                          <th>是否激活</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+
+			                  </div>
+			                </div>
+			              </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+ 			              <div class="col-md-12 col-sm-12 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>用户角色信息 <small>Roles Detail</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+
+			                    <table class="table" id="roleManageListTable">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>组名</th>
+			                          <th>备注</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+
+			                  </div>
+			                </div>
+			              </div>
+						</div>
+
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content3" aria-labelledby="profile-tab">
+ 			              <div class="col-md-12 col-sm-12 col-xs-12">
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2>组织架构信息 <small>Structure Detail</small></h2>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+
+			                    <table class="table" id="structureRootTableLists">
+			                      <thead>
+			                        <tr>
+			                          <th>ID</th>
+			                          <th>名称</th>
+			                          <th>备注</th>
+			                          <th>部门负责人</th>
+			                          <th>类型</th>
+			                          <th>邮件组地址</th>
+			                          <th>企业微信地址</th>
+			                          <th>钉钉地址</th>
+			                          <th class="text-center">操作</th>
+			                        </tr>
+			                      </thead>
+			                      <tbody>
+			                      </tbody>
+			                    </table>
+
+			                  </div>
+			                </div>
+			              </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}

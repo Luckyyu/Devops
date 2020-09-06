@@ -21,4 +21,5 @@ from . import views
 
 urlpatterns = [
     url('^duty_list/$', views.duty.as_view()),
+    url('^duty/$', views.pro_duty.as_view()),
 ]

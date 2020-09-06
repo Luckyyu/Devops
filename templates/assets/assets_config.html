@@ -378,7 +378,56 @@
     </div>
 </div>
 
+<div id="addIdleModal" class="modal fade bs-example-modal-zone" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">机房闲置资产信息</h4>
+              </div>
+              <div class="modal-body">
+				<form class="form-horizontal" role="form" id="idleAssetsform">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">机房信息 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" id="idc_idle_select">
+                          </select>
+                        </div>
+                      </div>
+					<div class="item form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">资产名称<span class="required">*</span>
+						</label>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input class="form-control" type="text" id="idle_name" />
+						</div>
+					</div>
+					<div class="item form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">数量<span class="required">*</span>
+						</label>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input class="form-control" type="text" id="idle_number" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">备注
+						</label>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input class="form-control" type="text" id="idle_desc" />
+						</div>
+					</div>
+				</form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="idlesubmit"  class="btn btn-primary">保存</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
 
 {% endblock %}
 

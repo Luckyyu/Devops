@@ -1,5 +1,7 @@
-     function makeDutyTables(dateStr){
 
+
+     //日历信息添加
+     function makeDutyTables(dateStr){
         $.confirm({
             icon: 'fa fa-edit',
             type: 'blue',
@@ -64,3 +66,9 @@
             }
         });
     }
+
+ //值班内容添加
+$('#dutysubmit').on('click',function(){
+    $('#addLogModal').modal("show");
+});
+

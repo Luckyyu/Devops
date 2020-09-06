@@ -22,6 +22,9 @@ from api.views import assets_api,cal_api
 
 urlpatterns = [
     url('^zone/$',assets_api.zone_list ),
+    url(r'^zone/(?P<id>[0-9]+)/$',assets_api.zone_detail),
     url('^duty/$',cal_api.cal ),
     url('^idc/$',assets_api.idc_list),
+    url(r'^idc/(?P<id>[0-9]+)/$',assets_api.idc_detail),
+    url('^idel/$',assets_api.idel_list),
 ]

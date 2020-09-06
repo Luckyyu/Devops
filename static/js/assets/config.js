@@ -122,6 +122,7 @@ $(document).ready(function(){
         console.log(item["idc_name"]);
     });
 
+
 //显示idc表格，以及获取数据
 function makeIDCTables(dataList){
     var columns = [
@@ -153,7 +154,8 @@ function makeIDCTables(dataList){
             text: '<span class="fa fa-plus"></span>',
             className: "btn-xs",
             action: function ( e, dt, node, config ) {
-                makeSelect("zone_idc_select","zone_name","zone",zone_list)
+                zone_list = requests('get',"/api/zone/");
+                makeSelect("zone_idc_select","zone_name","zone",zone_list);
             	$('#addIDCModal').modal("show");
             }
         }]
@@ -162,7 +164,7 @@ function makeIDCTables(dataList){
     makeZoneTables(zone_list);
     makeIDCTables(idc_list);
 
-//机房添加
+//主页面按钮，机房添加
     $('#idcsubmit').on('click',function(){
         $.ajax({
             cache:true,
@@ -202,6 +204,169 @@ function makeIDCTables(dataList){
             }
         });
     });
+
+    //机房修改
+    $('#idcAssetsTable tbody').on('click',"button[name='btn-idc-modf']", function(){
+    	var vIds = $(this).val();
+    	var td = $(this).parent().parent().parent().find("td")
+    	var zone = td.eq(1).text();
+    	var idc_name = td.eq(2).text();
+    	var idc_bandwidth = td.eq(3).text();
+    	var idc_contact = td.eq(4).text();
+    	var idc_phone = td.eq(5).text();
+    	var idc_address = td.eq(6).text();
+    	var idc_network = td.eq(7).text();
+    	var idc_desc = td.eq(8).text();
+        $.confirm({
+            icon: 'fa fa-edit',
+            type: 'blue',
+            title: '修改数据',
+            content: '<form  data-parsley-validate class="form-horizontal form-label-left">' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">机房名称<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_name" value="'+ idc_name +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		             '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">机房带宽<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_bandwidth" value="'+ idc_bandwidth +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">联系人<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_contact" value="'+ idc_contact +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">联系电话<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_phone" value="'+ idc_phone +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">机房地址<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_address" value="'+ idc_address +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">IP地址段<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_network" value="'+ idc_network +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		            '<div class="form-group">' +
+    		              '<label class="control-label col-md-4 col-sm-3 col-xs-12" for="last-name">备注<span class="required">*</span>' +
+    		              '</label>' +
+    		              '<div class="col-md-6 col-sm-6 col-xs-12">' +
+    		                '<input type="text"  name="modf_idc_desc" value="'+ idc_desc +'" required="required" class="form-control col-md-7 col-xs-12">' +
+    		              '</div>' +
+    		            '</div>' +
+    		          '</form>',
+            buttons: {
+                '取消': function() {},
+                '修改': {
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        var zone = this.$content.find("[name='modf_zone_name']").val();
+                        var idc_name = this.$content.find("[name='modf_idc_name']").val();
+                        var idc_bandwidth = this.$content.find("[name='modf_idc_bandwidth']").val();
+                        var idc_contact = this.$content.find("[name='modf_idc_contact']").val();
+                        var idc_phone = this.$content.find("[name='modf_idc_phone']").val();
+                        var idc_address = this.$content.find("[name='modf_idc_address']").val();
+                        var idc_network = this.$content.find("[name='modf_idc_network']").val();
+                        var idc_desc = this.$content.find("[name='modf_idc_desc']").val();
+
+
+    			    	$.ajax({
+    			            cache: true,
+    			            type: "PUT",
+    			            url:"/api/idc/" + vIds + '/',
+    			            data:{
+    			            	"zone":zone,
+    			            	"idc_name":idc_name,
+    			            	"idc_bandwidth":idc_bandwidth,
+    			            	"idc_contact":idc_contact,
+    			            	"idc_phone":idc_phone,
+    			            	"idc_address":idc_address,
+    			            	"idc_network":idc_network,
+                                "idc_desc":idc_desc
+    			            	},
+    			            error: function(request) {
+    			            	new PNotify({
+    			                    title: 'Ops Failed!',
+    			                    text: request.responseText,
+    			                    type: 'error',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            },
+    			            success: function(data) {
+    			            	new PNotify({
+    			                    title: 'Success!',
+    			                    text: '修改成功',
+    			                    type: 'success',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            	RefreshTable('idcAssetsTable', '/api/idc/');
+    			            }
+    			    	});
+                    }
+                }
+            }
+        });
+    });
+
+        //机房删除
+    $('#idcAssetsTable tbody').on('click',"button[name='btn-idc-confirm']", function(){
+    	var vIds = $(this).val();
+    	var idcName = $(this).parent().parent().parent().find("td").eq(2).text();
+        $.confirm({
+            icon: 'fa fa-edit',
+            type: 'red',
+            title: '删除确认',
+            content: "删除标签：【"+idcName+"】",
+            buttons: {
+                '取消': function() {},
+                '确认': {
+                    btnClass: 'btn-blue',
+                    action: function() {
+    			    	$.ajax({
+    			            cache: true,
+    			            type: "DELETE",
+    			            url:"/api/idc/" + vIds + '/',
+    			            error: function(request) {
+    			            	new PNotify({
+    			                    title: 'Devops Failed!',
+    			                    text: request.responseText,
+    			                    type: 'error',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            },
+    			            success: function(data) {
+    			            	new PNotify({
+    			                    title: 'Success!',
+    			                    text: '机房删除成功',
+    			                    type: 'success',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            	RefreshTable('idcAssetsTable', '/api/idc/');
+    			            }
+    			    	});
+                    }
+                }
+            }
+        });
+    });
+
 //区域添加
     $('#zonesubmit').on('click',function(){
         $.ajax({
@@ -231,6 +396,7 @@ function makeIDCTables(dataList){
                 });
                 RefreshTable('zoneAssetsTable', '/api/zone/');
                 $('#addZoneModal').modal("hide");
+
             }
         });
     });
@@ -286,6 +452,124 @@ function makeIDCTables(dataList){
     			    	});
                     }
                 }
+            }
+        });
+    });
+
+    //区域删除
+    $('#zoneAssetsTable tbody').on('click',"button[name='btn-zone-confirm']", function(){
+    	var vIds = $(this).val();
+    	var zoneName = $(this).parent().parent().parent().find("td").eq(1).text();
+        $.confirm({
+            icon: 'fa fa-edit',
+            type: 'red',
+            title: '删除确认',
+            content: "删除标签：【"+zoneName+"】",
+            buttons: {
+                '取消': function() {},
+                '确认': {
+                    btnClass: 'btn-blue',
+                    action: function() {
+    			    	$.ajax({
+    			            cache: true,
+    			            type: "DELETE",
+    			            url:"/api/zone/" + vIds + '/',
+    			            error: function(request) {
+    			            	new PNotify({
+    			                    title: 'Devops Failed!',
+    			                    text: request.responseText,
+    			                    type: 'error',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            },
+    			            success: function(data) {
+    			            	new PNotify({
+    			                    title: 'Success!',
+    			                    text: '区域删除成功',
+    			                    type: 'success',
+    			                    styling: 'bootstrap3'
+    			                });
+    			            	RefreshTable('zoneAssetsTable', '/api/zone/');
+    			            }
+    			    	});
+                    }
+                }
+            }
+        });
+    });
+
+    //显示idel表格，以及获取数据
+function makeIdelTables(dataList){
+//设置模板数据
+    var columns = [
+        {"data":"id"},
+        {"data":"idc_name"},
+        {"data":"assets_name"},
+        {"data":"account"},
+        {"data":"recorder"},
+        {"data":"desc"},
+        {"data":"record_time"},
+    ]
+    var columnDefs = [
+   	    		        {
+	    	    				targets: [7],
+	    	    				render: function(data, type, row, meta) {
+	    	                        return '<div class="btn-group  btn-group-xs">' +
+		    	                           '<button type="button" name="btn-idel-modf" value="'+ row.id +'" class="btn btn-default"  aria-label="Justify"><span class="fa fa-edit" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '<button type="button" name="btn-idel-confirm" value="'+ row.id +'" class="btn btn-default" aria-label="Justify"><span class="fa fa-trash" aria-hidden="true"></span>' +
+		    	                           '</button>' +
+		    	                           '</div>';
+	    	    				},
+	    	    				"className": "text-center",
+   	    		        },
+   	    		      ]
+   	var buttons = [{
+            text: '<span class="fa fa-plus"></span>',
+            className: "btn-xs",
+            action: function ( e, dt, node, config ) {
+                idc_list = requests('get',"/api/idc/");
+                makeSelect("idc_idle_select","idc_name","idc",idc_list);
+            	$('#addIdleModal').modal("show");
+            }
+        }]
+        //设备模板数据后，调用InitDataTable()渲染页面
+        InitDataTable('idleAssetsTable',dataList,buttons,columns,columnDefs)
+     }
+     var idelList = requests('get','/api/idel/');
+     makeIdelTables(idelList);
+//主页面按钮，idel添加
+    $('#idlesubmit').on('click',function(){
+        $.ajax({
+            cache:true,
+            type:"POST",
+            url:"/api/idel/",
+            contentType : "application/json",
+			dataType : "json",
+            data:JSON.stringify({
+				"idc": $('#idc_idle_select option:selected').val(),
+				"assets_name":$('#idle_name').val(),
+				"account":$('#idle_number').val(),
+				"desc":$('#idle_desc').val(),
+			}),
+            async:false,
+            error: function(request) {
+            	new PNotify({
+                    title: 'Devops Failed!',
+                    text: request.responseText,
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            },
+            success:function(data){
+                new PNotify({
+                    title:"Success!",
+                    text:'Idel添加成功',
+                    type:'Sueccess',
+                    styling:'bootstrap3'
+                });
+                RefreshTable('idleAssetsTable', '/api/idel/');
+                $('#addIdleModal').modal("hide");
             }
         });
     });

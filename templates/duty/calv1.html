@@ -33,6 +33,10 @@
 
 {% block page-content %}
 <div id='calendar'></div>
+<button class="bk-icon-button bk-success"  name='dutysubmit' title="保存">
+    <i class="bk-icon icon-save"></i>
+    <i class="bk-text">值班交接</i>
+</button>
 {% endblock %}
 
 {% block js-content %}
@@ -70,6 +74,7 @@
         calendar.render();
 }
 document.addEventListener('DOMContentLoaded',loadfull());
+
 
 </script>
 <script src="/static/js/duty/duty.js"></script>

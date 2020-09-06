@@ -24,5 +24,19 @@ class IDC_Assets(models.Model):
         verbose_name = "资产管理"
         verbose_name_plural = "机房资产表"
 
+class Idel_Assets(models.Model):
+    idc_name =models.ForeignKey(IDC_Assets,related_name="idel_assets",on_delete=models.CASCADE)
+    idle_name = models.CharField(max_length=128,blank=True,null=True,default='',verbose_name='资产名称')
+    idle_number = models.SmallIntegerField(default=10,verbose_name='剩余个数')
+    idle_user = models.CharField(max_length=16,blank=True,null=True,default='',verbose_name='登记员')
+    idle_desc = models.CharField(max_length=128,blank=True,null=True,default='',verbose_name='备注')
+    update_time = models.DateTimeField(auto_now=True,blank=True,null=True,verbose_name='修改时间')
+    class Meta:
+        db_table = "devops_idel_assets"
+        verbose_name = "闲置资产管理"
+        verbose_name_plural = "机房闲置资产表"
+
+
+
 
 

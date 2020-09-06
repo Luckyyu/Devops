@@ -1,0 +1,143 @@
+{% extends 'duty_base.html' %}
+{% block css-content %}
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bk-icon-2.0/iconfont.css" rel="stylesheet">
+    <link href="/static/css/duty/fullcalendar.css" rel="stylesheet">
+<link href="/static/css/jquery/jquery-confirm.min.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+<link href="/static/css/pnotify/pnotify.nonblock.css" rel="stylesheet">
+    <style>
+        #calendar {
+        max-width: 700px;
+        max-height:550px;
+        margin: 20px 0;
+        padding: 0 10px;
+  }
+  .fc .fc-daygrid-day-top {
+    /*display: flex;*/
+    text-align:center;
+    padding-bottom: 8px;
+    flex-direction: row-reverse;
+  }
+.fc-v-event { /* allowed to be top-level */
+  display: block;
+  border: 1px solid #3788d8;
+  border: 1px solid var(--fc-event-border-color, #3788d8);
+  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--fc-event-bg-color, #3788d8)
+
+}
+    </style>
+{% endblock %}
+
+
+{% block page-content %}
+<div id='calendar'></div>
+<div class="row">
+    <button class="bk-icon-button bk-success"  id='dutysubmit' title="保存">
+    <i class="bk-icon icon-save"></i>
+    <i class="bk-text">值班交接</i>
+</button>
+
+    <div id="addLogModal" class="modal fade bs-example-modal-log" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">每日回顾</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="zoneAssetsform">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">标题<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs12">
+                            <input type="text" class="form-control" id="title" placeholder="文章标题" value="" class="input-xlarge"  required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">内容<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs12">
+                            <textarea name="content" id="content" class="ckeditor" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">分类<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs12">
+                            <select   required="required" class="selectpicker form-control" id="select_category" data-live-search="true" data-size="10" data-selected-text-format="count > 3"  data-width="100%" autocomplete="off"  required>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">标签<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs12">
+                            <select   required="required" class="selectpicker form-control" id="select_tag" data-live-search="true" data-size="10" data-selected-text-format="count > 3"  data-width="100%" autocomplete="off"  required>
+							</select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="logsubmit" class="btn btn-primary">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block js-content %}
+    <script src="/static/js/duty/fullcalendar.js"></script>
+    <script src="/static/js/duty/locales-all.min.js"></script>
+
+<script src="/static/js/jquery/jquery-confirm.min.js"></script>
+<script src="/static/js/pnotify/pnotify.js"></script>
+<script src="/static/js/pnotify/pnotify.nonblock.js"></script>
+<script src="/static/js/pnotify/pnotify.buttons.js"></script>
+<script src="/static/js/duty/duty.js"></script>
+<script type="text/javascript" src="/static/js/ckeditor/ckeditor.js"></script>
+<script>
+$(document).ready(function(){
+     function loadfull(){
+        console.log("it works");
+        var initialLocaleCode = 'en';
+        var calendarE1 = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarE1,{
+            initialDate:'{{ nowday }}',
+            locale: initialLocaleCode,
+            editable:false,
+            selectable:true,
+            navLinks:false,
+            eventSources:[{
+                url:'http://127.0.0.1:8000/api/duty/',
+                textColor: 'black',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderColor:'rgba(0, 0, 0, 0)'
+            }],
+            dateClick: function(info){
+                makeDutyTables(info.dateStr);
+
+            },
+            eventOrder: 'order',
+        });
+        calendar.render();
+}
+loadfull();
+
+});
+
+</script>
+
+{% endblock %}

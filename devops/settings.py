@@ -75,6 +75,7 @@ REST_FRAMEWORK = {
 }
 
 ROOT_URLCONF = 'devops.urls'
+AUTH_USER_MODEL = 'account.User'
 
 TEMPLATES = [
     {

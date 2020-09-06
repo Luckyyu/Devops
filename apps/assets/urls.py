@@ -21,4 +21,5 @@ from . import views
 
 urlpatterns = [
     url('^config/$', views.Config.as_view()),
+
 ]
